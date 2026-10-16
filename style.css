@@ -1,0 +1,744 @@
+/* INFINITY GEEK - ESTILO VISUAL */
+
+:root {
+  --preto: #09090d;
+  --fundo: #111116;
+  --cartao: #1b1b23;
+  --vermelho: #ed1834;
+  --vermelho-escuro: #a90e24;
+  --branco: #ffffff;
+  --cinza: #b6b6c2;
+  --borda: #30303a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--preto);
+  color: var(--branco);
+  line-height: 1.6;
+}
+
+body.modal-aberto {
+  overflow: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+}
+
+h1 span, h2 span, h3 span {
+  color: var(--vermelho);
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9, 9, 13, 0.96);
+  border-bottom: 1px solid var(--borda);
+  backdrop-filter: blur(12px);
+}
+
+.barra {
+  min-height: 78px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span:last-child {
+  color: var(--vermelho);
+}
+
+.logo-simbolo {
+  color: var(--vermelho);
+  font-size: 32px;
+  margin-right: 5px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.menu a {
+  font-size: 14px;
+  font-weight: 700;
+  transition: color .25s;
+}
+
+.menu a:hover,
+.menu a.ativo {
+  color: var(--vermelho);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 30px;
+}
+
+/* HERO - FUNDO DE HERÓIS */
+
+.hero {
+  min-height: 560px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #101018;
+}
+
+.hero-fundo {
+  position: absolute;
+  inset: 0;
+
+  /* Imagem real hospedada no Wikimedia Commons */
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4,4,9,.96) 0%,
+      rgba(4,4,9,.78) 45%,
+      rgba(4,4,9,.30) 100%
+    ),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Avengers%20Endgame%20logo.svg");
+
+  background-position: center, right center;
+  background-size: cover, 65% auto;
+  background-repeat: no-repeat;
+  opacity: .95;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 80% 55%,
+      rgba(237,24,52,.25),
+      transparent 55%
+    );
+}
+
+.hero-conteudo {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: var(--vermelho);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 8px 13px;
+  border-radius: 3px;
+}
+
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(34px, 5.5vw, 68px);
+  font-weight: 900;
+  margin: 24px 0;
+  text-shadow: 0 4px 20px #000;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero p {
+  max-width: 550px;
+  color: #e1e1e6;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.botao-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vermelho);
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  transition: transform .25s, background .25s;
+}
+
+.botao-principal:hover {
+  background: var(--vermelho-escuro);
+  transform: translateY(-3px);
+}
+
+/* FAIXA */
+
+.faixa {
+  background: var(--vermelho);
+  padding: 13px 0;
+}
+
+.faixa .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faixa span {
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.faixa p {
+  font-size: 13px;
+}
+
+/* SEÇÃO DE NOTÍCIAS */
+
+.secao {
+  padding-top: 85px;
+  padding-bottom: 100px;
+}
+
+.secao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 32px;
+}
+
+.subtitulo {
+  color: var(--vermelho);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.secao h2, .area-gamer h2 {
+  font-size: clamp(25px, 3vw, 38px);
+  margin-top: 10px;
+}
+
+.pesquisa {
+  position: relative;
+  width: min(320px, 100%);
+}
+
+.pesquisa input {
+  width: 100%;
+  padding: 13px 42px 13px 16px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  color: white;
+  border-radius: 5px;
+  outline: none;
+}
+
+.pesquisa input:focus {
+  border-color: var(--vermelho);
+}
+
+.pesquisa span {
+  position: absolute;
+  right: 15px;
+  top: 1px;
+  font-size: 29px;
+  color: var(--vermelho);
+}
+
+/* FILTROS */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.filtro {
+  background: #1b1b23;
+  border: 1px solid var(--borda);
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transition: .25s;
+}
+
+.filtro:hover,
+.filtro.ativo {
+  background: var(--vermelho);
+  border-color: var(--vermelho);
+}
+
+/* CARDS */
+
+.grade-noticias {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.card {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  overflow: hidden;
+  transition: transform .3s, border-color .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--vermelho);
+}
+
+.card-imagem {
+  height: 215px;
+  overflow: hidden;
+  position: relative;
+  background: #252532;
+}
+
+.card-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+
+.card:hover .card-imagem img {
+  transform: scale(1.07);
+}
+
+.card-categoria {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: var(--vermelho);
+  font-size: 11px;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+.card-conteudo {
+  padding: 22px;
+}
+
+.card-data {
+  font-size: 12px;
+  color: var(--cinza);
+}
+
+.card h3 {
+  font-size: 17px;
+  margin: 12px 0;
+  min-height: 64px;
+}
+
+.card p {
+  color: var(--cinza);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.card-botao {
+  border: 0;
+  background: transparent;
+  color: var(--vermelho);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.card-botao:hover {
+  color: white;
+}
+
+.sem-resultados {
+  text-align: center;
+  color: var(--cinza);
+  padding: 50px;
+}
+
+/* BANNER GAMER */
+
+.area-gamer {
+  position: relative;
+  padding: 100px 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,5,10,.97),
+      rgba(20,0,8,.80)
+    ),
+    url("https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&auto=format&fit=crop&q=85")
+    center / cover;
+  border-top: 1px solid var(--vermelho);
+  border-bottom: 1px solid var(--vermelho);
+}
+
+.gamer-conteudo {
+  position: relative;
+}
+
+.area-gamer h2 {
+  margin: 15px 0;
+}
+
+.area-gamer p {
+  color: #d1d1d8;
+  max-width: 550px;
+  margin-bottom: 25px;
+}
+
+/* SOBRE */
+
+.sobre {
+  text-align: center;
+  padding-top: 95px;
+  padding-bottom: 95px;
+}
+
+.sobre-icone {
+  color: var(--vermelho);
+  font-size: 80px;
+  line-height: 1;
+}
+
+.sobre h2 {
+  font-size: 32px;
+  margin: 15px 0;
+}
+
+.sobre p {
+  color: var(--cinza);
+  max-width: 600px;
+  margin: auto;
+}
+
+/* RODAPÉ */
+
+.rodape {
+  background: #070709;
+  border-top: 1px solid var(--borda);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.rodape h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.rodape p {
+  color: var(--cinza);
+  font-size: 14px;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 12px !important;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+}
+
+.modal-caixa {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--cartao);
+  border: 1px solid var(--vermelho);
+  border-radius: 10px;
+}
+
+.modal-caixa > img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+
+.modal-texto {
+  padding: 30px;
+}
+
+.modal-texto h2 {
+  margin: 18px 0;
+  font-size: 25px;
+}
+
+.modal-texto p {
+  margin-bottom: 15px;
+  color: #d1d1d8;
+}
+
+.modal-texto a {
+  color: var(--vermelho);
+  font-weight: bold;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--vermelho);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  z-index: 2;
+}
+
+/* ACESSIBILIDADE */
+
+:focus-visible {
+  outline: 3px solid #ff7184;
+  outline-offset: 3px;
+}
+
+/* CELULARES E TABLETS */
+
+@media (max-width: 950px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: #111116;
+    border-bottom: 2px solid var(--vermelho);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu.aberto {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .grade-noticias {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .logo {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 510px;
+  }
+
+  .hero-fundo {
+    background-size: cover, 100% auto;
+    background-position: center;
+  }
+
+  .hero-conteudo {
+    padding: 80px 0;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .faixa .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .secao-topo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pesquisa {
+    width: 100%;
+  }
+
+  .grade-noticias {
+    grid-template-columns: 1fr;
+  }
+
+  .card-imagem {
+    height: 230px;
+  }
+
+  .card h3 {
+    min-height: auto;
+  }
+
+  .modal-caixa > img {
+    height: 190px;
+  }
+
+  .modal-texto {
+    padding: 22px;
+  }
+
+  .modal-texto h2 {
+    font-size: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* FUNDO ANIMADO MARVEL E DC */
+
+.fundo-herois {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+    background: transparent;
+}
+
+.fundo-herois .faixa {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 55px;
+    width: max-content;
+
+    transform: rotate(-25deg);
+    animation: flutuarDiagonal 18s ease-in-out infinite alternate;
+}
+
+.fundo-herois .faixa img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: transparent;
+}
+
+@keyframes flutuarDiagonal {
+    from {
+        translate: -100px -100px;
+    }
+
+    to {
+        translate: 100px 100px;
+    }
+}
+/* FUNDO ESCURO PARA OS LOGOS FLUTUANTES */
+.fundo-herois {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+body {
+    background-color: #08080d;
+}
+
+body > *:not(.fundo-herois) {
+    position: relative;
+    z-index: 1;
+}/* REMOVER FUNDO DAS FILEIRAS */
+.fundo-herois,
+.fundo-herois .faixa,
+.fundo-herois .faixa img {
+    background: transparent !important;
+    background-image: none !important;
+}

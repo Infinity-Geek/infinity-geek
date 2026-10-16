@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Infinity Geek: filmes, séries, música, games, eSports e cultura pop.">
+
+  <title>Infinity Geek | O Universo da Cultura Pop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+<!-- FUNDO ANIMADO MARVEL E DC -->
+<div class="fundo-herois" id="fundoHerois" aria-hidden="true"></div>
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="container barra">
+      <a href="#" class="logo" aria-label="Infinity Geek início">
+        <span class="logo-simbolo">∞</span>
+        INFINITY <span>GEEK</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Abrir menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="menu" id="menu">
+        <a href="#inicio" class="ativo">Início</a>
+        <a href="#noticias" data-categoria="filmes">Filmes</a>
+        <a href="#noticias" data-categoria="musica">Música</a>
+        <a href="#noticias" data-categoria="games">Games</a>
+        <a href="#noticias" data-categoria="esports">eSports</a>
+        <a href="#noticias" data-categoria="esportes">Esportes</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- DESTAQUE PRINCIPAL -->
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-fundo"></div>
+      <div class="container hero-conteudo">
+        <span class="etiqueta">O UNIVERSO GEEK COMEÇA AQUI</span>
+
+        <h1>
+          SEU PORTAL PARA O
+          <span>INFINITO GEEK</span>
+        </h1>
+
+        <p>
+          Heróis, filmes, música, jogos e os maiores
+          campeonatos de eSports em um só universo.
+        </p>
+
+        <a href="#noticias" class="botao-principal">
+          EXPLORAR NOTÍCIAS →
+        </a>
+      </div>
+    </section>
+
+    <!-- FAIXA DE DESTAQUES -->
+    <div class="faixa">
+      <div class="container">
+        <span>🔥 EM DESTAQUE</span>
+        <p>Marvel • DC • Valorant • CS2 • Música • Futebol</p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIAS -->
+    <section class="secao container" id="noticias">
+      <div class="secao-topo">
+        <div>
+          <span class="subtitulo">FIQUE POR DENTRO</span>
+          <h2>ÚLTIMAS <span>NOTÍCIAS</span></h2>
+        </div>
+
+        <div class="pesquisa">
+          <input
+            type="search"
+            id="pesquisa"
+            placeholder="Pesquisar notícias..."
+            aria-label="Pesquisar notícias"
+          >
+          <span>⌕</span>
+        </div>
+      </div>
+
+      <!-- FILTROS -->
+      <div class="filtros" id="filtros">
+        <button class="filtro ativo" data-filtro="todos">Todos</button>
+        <button class="filtro" data-filtro="filmes">Filmes</button>
+        <button class="filtro" data-filtro="musica">Música</button>
+        <button class="filtro" data-filtro="games">Games</button>
+        <button class="filtro" data-filtro="esports">eSports</button>
+        <button class="filtro" data-filtro="esportes">Esportes</button>
+      </div>
+
+      <!-- CARDS GERADOS PELO JAVASCRIPT -->
+      <div class="grade-noticias" id="gradeNoticias"></div>
+
+      <p class="sem-resultados" id="semResultados" hidden>
+        Nenhuma notícia encontrada. Tente outra pesquisa.
+      </p>
+    </section>
+
+    <!-- ÁREA GAMER -->
+    <section class="area-gamer">
+      <div class="container gamer-conteudo">
+        <span class="subtitulo">COMPETIÇÃO E ADRENALINA</span>
+        <h2>O MUNDO DOS <span>eSPORTS</span></h2>
+        <p>
+          Valorant, Counter-Strike 2 e as maiores competições
+          do cenário competitivo.
+        </p>
+        <a href="#noticias" class="botao-principal" id="verEsports">
+          EXPLORAR eSPORTS →
+        </a>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre container" id="sobre">
+      <div class="sobre-icone">∞</div>
+      <h2>INFINITY <span>GEEK</span></h2>
+      <p>
+        Um espaço criado para quem vive a cultura pop.
+        Aqui, cinema, games, música e esportes se encontram.
+      </p>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="container">
+      <h3>∞ INFINITY <span>GEEK</span></h3>
+      <p>O seu universo de cultura pop.</p>
+      <p class="copyright">
+        © <span id="ano"></span> Infinity Geek.
+        Projeto demonstrativo.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JANELA PARA LER NOTÍCIA -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-fundo" id="fecharFundo"></div>
+
+    <article class="modal-caixa"
+      role="dialog" aria-modal="true"
+      aria-labelledby="modalTitulo">
+
+      <button class="fechar-modal" id="fecharModal"
+        aria-label="Fechar notícia">×</button>
+
+      <img id="modalImagem" src="" alt="">
+      <div class="modal-texto">
+        <span class="etiqueta" id="modalCategoria"></span>
+        <h2 id="modalTitulo"></h2>
+        <p id="modalDescricao"></p>
+        <p id="modalConteudo"></p>
+        <a id="modalFonte" href="#" target="_blank"
+          rel="noopener noreferrer" hidden>
+          Consultar fonte original ↗
+        </a>
+      </div>
+    </article>
+  </div>
+
+</body>
+</html>
