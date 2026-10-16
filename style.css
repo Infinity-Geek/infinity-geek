@@ -521,7 +521,7 @@ h1 span, h2 span, h3 span {
 .modal-caixa {
   position: relative;
   width: min(720px, 100%);
-  max-height: 90vh;
+  max-height: calc(100dvh - 40px);
   overflow-y: auto;
   background: var(--cartao);
   border: 1px solid var(--vermelho);
@@ -741,4 +741,25 @@ body > *:not(.fundo-herois) {
 .fundo-herois .faixa img {
     background: transparent !important;
     background-image: none !important;
+}
+body > *:not(.fundo-herois) {
+    position: relative;
+    z-index: 1;
+}
+/* CORREÇÃO DO MODAL DAS NOTÍCIAS */
+
+body > .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100dvh;
+    padding: 20px;
+}
+
+.modal-caixa {
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
 }
