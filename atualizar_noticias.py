@@ -36,7 +36,24 @@ def buscar_rss(url):
     with urllib.request.urlopen(requisicao, timeout=20) as resposta:
         return ET.fromstring(resposta.read())
 
+def extrair_imagem(item):
+    for tag in (
+        "{http://search.yahoo.com/mrss/}content",
+        "{http://search.yahoo.com/mrss/}thumbnail"
+    ):
+        elem = item.find(tag)
+        if elem is not None:
+            url_img = elem.get("url") or elem.get("href") or ""
+            if url_img:
+                return url_img
 
+    enclosure = item.find("enclosure")
+    if enclosure is not None:
+        tipo = enclosure.get("type", "")
+        if tipo.startswith("image/"):
+            return enclosure.get("url", "")
+
+    return ""
 def texto(item, nome):
     elemento = item.find(nome)
     return "".join(elemento.itertext()).strip() if elemento is not None else ""
@@ -73,7 +90,7 @@ def buscar_noticias():
                         "titulo": titulo,
                         "descricao": descricao[:250],
                         "conteudo": descricao,
-                        "imagem": "",
+                        "imagem": extrair imagem(item),
                         "data": data,
                         "fonte": link
                     })
